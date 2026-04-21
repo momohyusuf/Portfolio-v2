@@ -1,0 +1,263 @@
+.contributions {
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.sub {
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+/* ── Calendar Card ── */
+.calendarWrap {
+  padding: 36px 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.calendarWrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* Override calendar library text colors to match theme */
+.calendarWrap :global(text) {
+  fill: var(--text-muted) !important;
+}
+
+.calendarWrap :global(.react-activity-calendar__legend-month),
+.calendarWrap :global(.react-activity-calendar__legend-weekday) {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .calendarWrap {
+    padding: 24px 16px;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+/* ── Latest Activity ── */
+.activityWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityTitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Month block */
+.monthBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.monthHeading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.monthLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.monthLine {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Group (commits / prs / reviews) */
+.groupList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 2px;
+  border-left: 2px solid var(--border);
+  margin-left: 4px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition: border-color var(--transition);
+}
+
+.group:hover {
+  border-color: var(--accent-border);
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.groupIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.commits {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: var(--accent-border);
+}
+
+.prs {
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.reviews {
+  color: #67e8f9;
+  background: rgba(103, 232, 249, 0.08);
+  border-color: rgba(103, 232, 249, 0.2);
+}
+
+.groupLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Repo rows */
+.repoList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 36px;
+}
+
+.repoRow {
+  display: grid;
+  grid-template-columns: 1fr auto 160px;
+  align-items: center;
+  gap: 12px;
+}
+
+.repoName {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repoName:hover {
+  text-decoration: underline;
+}
+
+.repoCount {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.barTrack {
+  height: 6px;
+  background: var(--bg-subtle);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 640px) {
+  .repoRow {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .barTrack {
+    grid-column: 1 / -1;
+  }
+
+  .repoList {
+    padding-left: 0;
+  }
+}

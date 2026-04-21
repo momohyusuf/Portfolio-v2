@@ -1,0 +1,254 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.glowBlob {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: clamp(300px, 50vw, 700px);
+  height: clamp(300px, 50vw, 700px);
+  background: radial-gradient(
+    circle,
+    rgba(232, 255, 0, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 60px);
+  padding-top: 120px;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-dim);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.headingWrap {
+  margin-bottom: 28px;
+}
+
+.headingLine,
+.subtitleLine {
+  overflow: hidden;
+}
+
+.name {
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.25em;
+  margin-bottom: 4px;
+}
+
+.wordClip {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.word {
+  display: inline-block;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.period {
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: clamp(1.4rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text-muted);
+  display: flex;
+  gap: 0.3em;
+  flex-wrap: wrap;
+}
+
+.subtitleWord {
+  display: inline-block;
+}
+
+.description {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(232, 255, 0, 0.25);
+}
+
+.btnArrow {
+  transition: transform var(--transition);
+}
+
+.btnPrimary:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.btnGhost:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNum {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.statDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.scrollDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .stats {
+    gap: 20px;
+  }
+  .statDivider {
+    height: 24px;
+  }
+}

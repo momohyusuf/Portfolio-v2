@@ -1,0 +1,137 @@
+.skills {
+  position: relative;
+}
+
+.header {
+  margin-bottom: 60px;
+}
+
+.heading {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 400px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  overflow: hidden;
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  /* background: var(--card-accent); */
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle at bottom right,
+    color-mix(in srgb, var(--card-accent) 10%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cardCategory {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+  font-weight: 700;
+}
+
+.cardDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--card-accent);
+  opacity: 0.5;
+}
+
+.skillList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.card:hover .skill {
+  color: var(--text);
+}
+
+.skillDash {
+  color: var(--card-accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,66 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232, 255, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 255, 0, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 40px;
+  text-align: center;
+}
+
+.quote {
+  font-family: var(--font-mono);
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  letter-spacing: -0.01em;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--accent);
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.attribution {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-top: 20px;
+  letter-spacing: 0.05em;
+}
