@@ -68,7 +68,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        <a href="mailto:hello@momohyusuf.dev" className={styles.cta}>
+        <a href="mailto:yusufmomoh6@gmail.com" className={styles.cta}>
           Hire Me
         </a>
       </div>

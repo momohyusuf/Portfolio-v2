@@ -44,7 +44,7 @@ export default function Hero() {
       <div className={styles.glowBlob} />
 
       <motion.div className={styles.content} style={{ y, opacity }}>
-        <motion.div
+        {/* <motion.div
           className={styles.badge}
           custom={0}
           variants={fadeUp}
@@ -53,7 +53,7 @@ export default function Hero() {
         >
           <span className={styles.badgeDot} />
           <span>Available for opportunities</span>
-        </motion.div>
+        </motion.div> */}
 
         <div className={styles.headingWrap}>
           <div className={styles.headingLine}>

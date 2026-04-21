@@ -23,7 +23,7 @@ const socials = [
   },
   {
     label: "Email",
-    href: "mailto:hello@momohyusuf.dev",
+    href: "mailto:yusufmomoh6@gmail.com",
     icon: (
       <svg
         width="20"
