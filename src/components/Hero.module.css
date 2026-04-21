@@ -29,6 +29,8 @@
   );
   pointer-events: none;
   filter: blur(40px);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .content {
@@ -40,6 +42,7 @@
   padding-top: 120px;
   padding-bottom: 80px;
   width: 100%;
+  will-change: transform, opacity;
 }
 
 .badge {
@@ -242,6 +245,16 @@
   height: 4px;
   border-radius: 50%;
   background: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .glowBlob {
+    filter: none;
+  }
+
+  .content {
+    will-change: auto;
+  }
 }
 
 @media (max-width: 480px) {

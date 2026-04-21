@@ -1,17 +1,36 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import styles from "./Hero.module.css";
 
 const WORDS = ["Fullstack", "Engineer."];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 768px)").matches;
+  const disableParallax = prefersReducedMotion || isMobile;
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    disableParallax ? ["0%", "0%"] : ["0%", "30%"],
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.6],
+    disableParallax ? [1, 1] : [1, 0],
+  );
 
   const containerVariants = {
     hidden: {},
