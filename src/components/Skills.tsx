@@ -30,9 +30,7 @@ export default function Skills() {
             The stack I<br />
             <span className="accent">actually use.</span>
           </h2>
-          <p className={styles.sub}>
-            Not a resume checkbox — tools I've shipped real products with.
-          </p>
+          <p className={styles.sub}>Tools I've shipped real products with.</p>
         </motion.div>
 
         <div className={styles.grid}>
