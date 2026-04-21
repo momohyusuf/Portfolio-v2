@@ -32,7 +32,9 @@
   background: var(--bg-card);
   position: relative;
   overflow: hidden;
-  transition: border-color var(--transition), transform var(--transition);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
 }
 
 .card::before {
